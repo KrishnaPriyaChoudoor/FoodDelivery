@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const { setUser } = require("./controllers/usercontroller");
 const dishes = require("./routes/dishesRoute");
 const user = require("./routes/usersRoute");
@@ -12,6 +13,8 @@ mongoose
 
 const port = 8080;
 app.use(express.json());
+
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log("TIme:", Date.now());
